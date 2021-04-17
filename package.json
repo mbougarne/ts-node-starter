@@ -1,0 +1,9 @@
+{
+  "name": "ts-node",
+  "version": "1.0.0",
+  "description": "A TypeScript Node JS starter template",
+  "main": "build/index.js",
+  "author": "Mourad Bougarne <contact@mbougarne.me>",
+  "license": "MIT",
+  "private": true
+}
