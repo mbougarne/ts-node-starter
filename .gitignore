@@ -2,3 +2,4 @@ node_modules
 .vs-code
 yarn-*.log
 build
+logs
