@@ -6,9 +6,21 @@
   "author": "Mourad Bougarne <contact@mbougarne.me>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "dev": "nodemon --exec babel-node --extensions \".ts\" -- ./src/index.ts",
+    "start": "babel-node ./build/index.js",
+    "build": "tsc --project ./",
+    "lint": "tsc --noEmit"
+  },
   "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-typescript": "^7.13.0",
     "@types/node": "^14.14.41",
+    "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
-  }
+  },
+  "dependencies": {}
 }
