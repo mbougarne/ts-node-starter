@@ -1,11 +1,22 @@
-import { createServer } from "http";
+import express, { Request, Response} from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
 
-const server = createServer();
+const app = express();
 
-server.on('connection', () => {
-  console.log('Connected')
-});
+app.use(helmet());
+app.use(cors());
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+app.use(cookieParser());
 
-server.on('error', console.error);
+app.get('/', (req: Request, res: Response) => {
+  res.status(200).json({
+    success: true,
+    status: 200,
+    path: req.url
+  })
+})
 
-server.listen(3000, '127.0.0.1', () => console.log('Connected on port 3000'));
+export default app;
