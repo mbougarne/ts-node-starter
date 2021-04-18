@@ -1,10 +1,10 @@
 /**
- * 
+ *
  * The code in this file is based on https://github.com/expressjs/generator "bin/www"
- * 
+ *
 */
 
-import { createServer } from "http";
+import { createServer } from 'http';
 import Debug from 'debug';
 import app from '../src';
 
@@ -22,34 +22,34 @@ app.set('host', HOST);
  * Event listener for HTTP server "error" event.
  */
 
- const onError = (err: { syscall: string; code: any; }) => {
-  if (err.syscall !== 'listen') {
-    throw err;
-  }
+const onError = (err: { syscall: string; code: any; }) => {
+	if (err.syscall !== 'listen') {
+		throw err;
+	}
 
-  const bind = (typeof PORT === 'string') ? 'Pipe ' + PORT : 'Port ' + PORT;
+	const bind = (typeof PORT === 'string') ? `Pipe ${PORT}` : `Port ${PORT}`;
 
-  // handle specific listen errors with friendly messages
-  switch (err.code) {
-    case 'EACCES':
-      error(bind + ' requires elevated privileges');
-      process.exit(0);
-    case 'EADDRINUSE':
-      error(bind + ' is already in use');
-      process.exit(0);
-    default:
-      throw err;
-  }
-}
+	// handle specific listen errors with friendly messages
+	switch (err.code) {
+	case 'EACCES':
+		error(`${bind} requires elevated privileges`);
+		process.exit(0);
+	case 'EADDRINUSE':
+		error(`${bind} is already in use`);
+		process.exit(0);
+	default:
+		throw err;
+	}
+};
 
 /**
  * Event listener for HTTP server "listening" event.
  */
 const onListening = () => {
-  const addr = server.address();
-  const bind = (typeof addr === 'string') ? 'pipe ' + addr : 'port ' + addr?.port;
-  debug('Listening on ' + bind);
-}
+	const addr = server.address();
+	const bind = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr?.port}`;
+	debug(`Listening on ${bind}`);
+};
 
 server.on('connection', () => log(`Connected and running on ${HOST}:${PORT}`));
 server.on('listening', onListening);
