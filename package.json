@@ -69,7 +69,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && echi \"Pre Commit Stage\" ",
+      "pre-commit": "lint-staged && echo \"Pre Commit Stage\" ",
       "pre-push": "yarn lint"
     }
   },
