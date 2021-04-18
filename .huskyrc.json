@@ -1,6 +1,0 @@
-{
-  "hooks": {
-    "pre-commit": "yarn lint-staged && echo \"Pre Commit Stage\" ",
-    "pre-push": "yarn lint"
-  }
-}
