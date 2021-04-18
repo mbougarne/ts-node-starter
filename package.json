@@ -69,11 +69,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "lint-staged && echi \"Pre Commit Stage\" ",
       "pre-push": "yarn lint"
     }
   },
   "lint-staged": {
-    "**.{ts,js}": "prettier --write"
+    "**.{ts,js}": "prettier --check"
   }
 }
