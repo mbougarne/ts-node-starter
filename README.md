@@ -1,2 +1,3 @@
-# ts-node-starter
+# Work in progress
+
 A starter template with Node and TypeScript
