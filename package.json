@@ -14,7 +14,7 @@
     "stop": "npx pm2 stop ecosystem.config.js",
     "build": "tsc --project ./",
     "lint": "eslint --cache && tsc --noEmit",
-    "lint-staged": "lint-staged"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
@@ -65,12 +65,6 @@
     "redis": "^3.1.1",
     "sequelize": "^6.6.2",
     "winston": "^3.3.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged && echo \"Pre Commit Stage\" ",
-      "pre-push": "yarn lint"
-    }
   },
   "lint-staged": {
     "*.{ts,js}": "prettier --check"
