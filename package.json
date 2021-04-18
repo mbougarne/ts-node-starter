@@ -1,5 +1,5 @@
 {
-  "name": "ts-node",
+  "name": "ts-node-starter",
   "version": "1.0.0",
   "description": "A TypeScript Node JS starter template",
   "main": "build/index.js",
@@ -13,7 +13,9 @@
     "delete": "npx pm2 delete ecosystem.config.js",
     "stop": "npx pm2 stop ecosystem.config.js",
     "build": "tsc --project ./",
-    "lint": "tsc --noEmit"
+    "lint": "eslint --cache && tsc --noEmit",
+    "prepare": "husky install",
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
@@ -39,10 +41,13 @@
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.24.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.2.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
+    "husky": "^6.0.0",
+    "lint-staged": ">=10",
     "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
@@ -61,5 +66,14 @@
     "redis": "^3.1.1",
     "sequelize": "^6.6.2",
     "winston": "^3.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn lint"
+    }
+  },
+  "lint-staged": {
+    "**.{ts,js}": "prettier --write"
   }
 }

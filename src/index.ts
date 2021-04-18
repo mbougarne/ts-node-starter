@@ -12,11 +12,11 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.get('/', (req: Request, res: Response) => {
-  res.status(200).json({
-    success: true,
-    status: 200,
-    path: req.url,
-  });
+	res.status(200).json({
+		success: true,
+		status: 200,
+		path: req.url,
+	});
 });
 
 export default app;

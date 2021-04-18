@@ -1,0 +1,5 @@
+# build
+# coverage
+# *.html
+# *(test|spec|e2e)*
+# *.{ts,js}.snap
