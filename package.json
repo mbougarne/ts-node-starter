@@ -6,6 +6,24 @@
   "author": "Mourad Bougarne <contact@mbougarne.me>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "dev": "DEBUG=* nodemon --exec babel-node --extensions \".ts\" -- ./bin/server.ts",
+    "start": "npx pm2 start ecosystem.config.js",
+    "restart": "npx pm2 restart ecosystem.config.js",
+    "delete": "npx pm2 delete ecosystem.config.js",
+    "stop": "npx pm2 stop ecosystem.config.js",
+    "build": "tsc --project ./",
+    "lint": "eslint --cache && tsc --noEmit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && echo \"Pre Commit Stage\" ",
+      "pre-push": "yarn lint"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js}": "prettier --check"
+  },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.15",
@@ -55,14 +73,5 @@
     "redis": "^3.1.1",
     "sequelize": "^6.6.2",
     "winston": "^3.3.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && echo \"Pre Commit Stage\" ",
-      "pre-push": "yarn lint"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,js}": "prettier --check"
   }
 }
