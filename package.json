@@ -13,7 +13,8 @@
     "delete": "npx pm2 delete ecosystem.config.js",
     "stop": "npx pm2 stop ecosystem.config.js",
     "build": "tsc --project ./",
-    "lint": "eslint --cache && tsc --noEmit"
+    "lint": "eslint --cache && tsc --noEmit",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
@@ -28,6 +29,7 @@
     "@types/express": "^4.17.11",
     "@types/express-fileupload": "^1.1.6",
     "@types/helmet": "^4.0.0",
+    "@types/jest": "^26.0.22",
     "@types/mime": "^2.0.3",
     "@types/mongoose": "^5.10.5",
     "@types/morgan": "^1.9.2",
@@ -45,8 +47,10 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "husky": "^6.0.0",
+    "jest": "^26.6.3",
     "lint-staged": "^10.5.4",
     "nodemon": "^2.0.7",
+    "ts-jest": "^26.5.5",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
@@ -66,6 +70,6 @@
     "winston": "^3.3.3"
   },
   "lint-staged": {
-    "*.{ts,js}": "prettier --check"
+    "*.{ts,js}": "prettier --write"
   }
 }
