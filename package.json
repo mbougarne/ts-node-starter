@@ -13,7 +13,8 @@
     "delete": "npx pm2 delete ecosystem.config.js",
     "stop": "npx pm2 stop ecosystem.config.js",
     "build": "tsc --project ./",
-    "lint": "eslint --cache && tsc --noEmit"
+    "lint": "eslint --cache && tsc --noEmit",
+    "lint-staged": "lint-staged"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
@@ -44,8 +45,8 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "husky": "4",
-    "lint-staged": ">=10",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
     "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
@@ -67,7 +68,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && echo \"Pre Commit Stage\" ",
+      "pre-commit": "yarn lint-staged && echo \"Pre Commit Stage\" ",
       "pre-push": "yarn lint"
     }
   },
