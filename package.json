@@ -14,7 +14,7 @@
     "stop": "npx pm2 stop ecosystem.config.js",
     "build": "tsc --project ./",
     "lint": "eslint --cache && tsc --noEmit",
-    "prepare": "husky install"
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
